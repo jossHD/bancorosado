@@ -15,27 +15,29 @@ export class CreateCasoComponent {
   miFormulario: FormGroup = this.fb.group({
     nombre: ['', [ Validators.required, Validators.pattern(this.nombrePatterns) ] ],
     email: ['', [ Validators.required ] ],
-    license: ['', [ Validators.required ] ],
+    nameProject: ['', [ Validators.required ] ],
     description: ['', [ Validators.required ] ],
     phone: ['', [ Validators.required ] ]
   })
 
   
-
+  nameProject: string = '';
   fullName: string = '';
-  license: string = '';
   email: string = '';
   description: string = '';
   phone: string= '';
   phonenumber :number = +this.phone;
 
-  constructor( private apiService: ApiService, private fb: FormBuilder ){  }
+
+
+  constructor( private apiService: ApiService, private fb: FormBuilder){  }
 
   apiCall(){
     
-    this.apiService.createCase( this.fullName, this.email, this.license, this.description, this.phonenumber  ).subscribe(data => {
-      console.log(data);
-  });
+    this.apiService.createCase( this.nameProject, this.fullName, this.email, this.description, this.phonenumber )
+      .subscribe(data => {
+        console.log(data);
+      });
   }
 
 }
