@@ -18,7 +18,7 @@
           name="fname"
           [(ngModel)]="nameProject"
           formControlName="nameProject"
-          placeholder="Enter your full name"
+          placeholder="Ingrese el nombre del proyecto"
           onblur="validate(1)"
         />
       </div>
@@ -30,7 +30,7 @@
           type="text"
           id="lname"
           name="lname"
-          placeholder=""
+          placeholder="Ingrese el nombre del encargado"
           [(ngModel)]="fullName"
           formControlName="nombre"
           onblur="validate(2)"
@@ -48,7 +48,7 @@
           name="email"
           [(ngModel)]="email"
           formControlName="email"
-          placeholder=""
+          placeholder="Ingrese el correo corporativo"
           onblur="validate(3)"
         />
       </div>
@@ -86,7 +86,7 @@
     <div class="row justify-content-end">
       <div class="form-group col-sm-6">
         <button type="submit" class="btn-block btn-primary" [disabled]="!miFormulario.valid" ng-click="OnClick()">
-          {{ miFormulario.valid }}
+          Crear
         </button>
       </div>
     </div>

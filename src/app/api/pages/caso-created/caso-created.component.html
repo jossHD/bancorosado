@@ -1,2 +1,29 @@
-<p>caso-created works!</p>
-<pre> {{ proyecto | json }}</pre>
+<div class="card">
+  <h5 class="text-center mb-4">Proyecto creado</h5>
+  <div class="row justify-content-between text-left">
+    <div class="form-group col-sm-6 flex-column d-flex">
+      <label class="form-control-label px-3"> Nombre del Proyecto </label>
+      <label class="px-3 text-title"> {{ proyecto.nameProject }} </label>
+    </div>
+    <div class="form-group col-sm-6 flex-column d-flex">
+      <label class="form-control-label px-3">Encargado</label>
+      <label class="px-3 text-title"> {{ proyecto.fullName}} </label>
+    </div>
+  </div>
+  <div class="row justify-content-between text-left">
+    <div class="form-group col-sm-6 flex-column d-flex">
+      <label class="form-control-label px-3">Email</label>
+      <label class="px-3 text-title"> {{ proyecto.email}} </label>
+    </div>
+    <div class="form-group col-sm-6 flex-column d-flex">
+      <label class="form-control-label px-3">Id del Caso</label>
+      <label class="px-3 text-title"> {{ proyecto.caseReference}} </label>
+    </div>
+  </div>
+  <div class="row justify-content-between text-left">
+    <div class="form-group col-12 flex-column d-flex">
+      <label class="form-control-label px-3">Meses estimados</label>
+      <label class="px-3 text-title"> {{ proyecto.months}} </label>
+    </div>
+  </div>
+</div>
