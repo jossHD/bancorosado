@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { proyect, Response } from "../app/api/interfaces/intefaces";
 import { ApiService } from './api/services/api.service';
+import {ThemePalette} from '@angular/material/core';
+import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
 
 
 @Component({
@@ -13,6 +14,9 @@ export class AppComponent {
   get status () {
     return this.apiservice.valid
   }
+  color: ThemePalette = 'primary';
+  mode: ProgressSpinnerMode = 'determinate';
+  value = 50;
 
   title = 'bancoRosado';
 

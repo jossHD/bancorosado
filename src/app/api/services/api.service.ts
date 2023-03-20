@@ -9,10 +9,10 @@ import { proyect, Response } from '../interfaces/intefaces';
 })
 export class ApiService {
   private apiURL: string =
-    'https://api-manage-691e5904-gateway-my-cp4i.mycluster-dal12-jlhd-ccc03eca20d26e6ac64511f874a64b9b-0000.us-south.containers.appdomain.cloud/org-provide/qa/Banco_Rosado_API_Lab/InnovationProject'
+    'https://api-manage-691e5904-gateway-my-cp4i.mycluster-dal12-jlhd-ccc03eca20d26e6ac64511f874a64b9b-0000.us-south.containers.appdomain.cloud/org-provide/qa/Banco_Rosado_API_Lab/InnovationProject';
   proyect!: proyect;
 
-  valid: boolean = false;
+  valid: number = 0;
 
   get status() {
     return this.valid;
@@ -35,7 +35,7 @@ export class ApiService {
     const headers = {
       'X-IBM-Client-Id': 'bacc867489068eb298f4f40abe25e5c4',
       'content-Type': 'application/json',
-      'accept': 'application/json',
+      accept: 'application/json',
     };
     const body = {
       NameProject: `${nameProject}`,
@@ -50,13 +50,13 @@ export class ApiService {
     };
     return this.http.post<Response>(this.apiURL, body, { headers }).pipe(
       tap((resp) => {
-        this.valid = true;
+        this.valid = 1;
         this.proyect = {
           nameProject: resp.NameProject,
           fullName: resp.Attendant,
           email: resp.Email,
           caseReference: resp.CaseReference,
-          months: resp.EstimatedMonths
+          months: resp.EstimatedMonths,
         };
       })
     );

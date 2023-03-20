@@ -43,10 +43,11 @@ export class CreateCasoComponent {
 
   }
 
-  apiCall(){
 
-    let phonenumber  = +this.phone;
+  apiCall(){
     
+    let phonenumber  = +this.phone;
+    this.apiService.valid = 2
     this.apiService.createCase( this.nameProject, this.fullName, this.email, this.description, phonenumber, this.filePDF )
     .subscribe(data => {
       console.log('apiCall response', this.filePDF)
