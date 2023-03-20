@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { buffer } from 'rxjs';
 
 @Component({
   selector: 'app-create-caso',
@@ -17,7 +18,7 @@ export class CreateCasoComponent {
     email: ['', [ Validators.required ] ],
     nameProject: ['', [ Validators.required ] ],
     description: ['', [ Validators.required ] ],
-    phone: ['', [ Validators.required ] ]
+    phone: ['', [ Validators.required ] ],
   })
 
   
@@ -26,18 +27,32 @@ export class CreateCasoComponent {
   email: string = '';
   description: string = '';
   phone: string= '';
-  phonenumber :number = +this.phone;
-
-
+  filePDF: string = '';
+  
 
   constructor( private apiService: ApiService, private fb: FormBuilder){  }
 
+  fileEvent(fileInput:any){
+      const file = fileInput.target.files[0]
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        const base64String = reader.result?.slice(28)
+        this.filePDF = base64String as string;
+      };
+
+  }
+
   apiCall(){
+
+    let phonenumber  = +this.phone;
     
-    this.apiService.createCase( this.nameProject, this.fullName, this.email, this.description, this.phonenumber )
-      .subscribe(data => {
-        console.log(data);
-      });
+    this.apiService.createCase( this.nameProject, this.fullName, this.email, this.description, phonenumber, this.filePDF )
+    .subscribe(data => {
+      console.log('apiCall response', this.filePDF)
+      console.log(data);
+    });
+
   }
 
 }

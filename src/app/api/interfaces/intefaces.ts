@@ -5,7 +5,7 @@ export interface Response {
         "Attendant": string;
         "CaseReference": string;
         "Email": string;
-        "EstimatedDays": number;
+        "EstimatedMonths": number;
         "NameProject": string;
     
 }
