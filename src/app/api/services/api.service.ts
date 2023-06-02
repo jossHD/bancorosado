@@ -9,7 +9,7 @@ import { proyect, Response } from '../interfaces/intefaces';
 })
 export class ApiService {
   private apiURL: string =
-    'https://api-manage-691e5904-gateway-my-cp4i.mycluster-dal12-jlhd-ccc03eca20d26e6ac64511f874a64b9b-0000.us-south.containers.appdomain.cloud/org-provide/qa/Banco_Rosado_API_Lab/InnovationProject';
+    'https://api-manage-143a4eee-gateway-my-cp4i.mycluster-jlhd-ccc03eca20d26e6ac64511f874a64b9b-0000.us-south.containers.appdomain.cloud/dev-01/qa/Banco_Rosado_API_Lab/InnovationProject';
   proyect!: proyect;
 
   valid: number = 0;
@@ -33,10 +33,11 @@ export class ApiService {
     file: string
   ): Observable<any> {
     const headers = {
-      'X-IBM-Client-Id': 'bacc867489068eb298f4f40abe25e5c4',
+      'X-IBM-Client-Id': '96ccac865ca043186617883556983401',
       'content-Type': 'application/json',
       accept: 'application/json',
     };
+    console.log(name);
     const body = {
       NameProject: `${nameProject}`,
       Attendant: `${name}`,
@@ -50,6 +51,7 @@ export class ApiService {
     };
     return this.http.post<Response>(this.apiURL, body, { headers }).pipe(
       tap((resp) => {
+        console.log("respuesta de la api");
         this.valid = 1;
         this.proyect = {
           nameProject: resp.NameProject,
