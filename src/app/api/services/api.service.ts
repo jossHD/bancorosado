@@ -9,7 +9,7 @@ import { proyect, Response } from '../interfaces/intefaces';
 })
 export class ApiService {
   private apiURL: string =
-    'https://api-manage-143a4eee-gateway-my-cp4i.mycluster-jlhd-ccc03eca20d26e6ac64511f874a64b9b-0000.us-south.containers.appdomain.cloud/dev-01/qa/Banco_Rosado_API_Lab/InnovationProject';
+    'https://api-manage-e94cc748-gateway-my-cp4i.mycluster-jlhd-ccc03eca20d26e6ac64511f874a64b9b-0000.us-south.containers.appdomain.cloud/dev-01/qa/Banco_Rosado_API_Lab/InnovationProject';
   proyect!: proyect;
 
   valid: number = 0;
@@ -33,7 +33,8 @@ export class ApiService {
     file: string
   ): Observable<any> {
     const headers = {
-      'X-IBM-Client-Id': '96ccac865ca043186617883556983401',
+      'X-IBM-Client-Id': '42065dda4447bcb2e8f0a489aab36f14',
+      'X-IBM-Client-Secret': '3033ef08ab52f97bbfbc25ba52ca1296',
       'content-Type': 'application/json',
       accept: 'application/json',
     };
